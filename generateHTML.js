@@ -1,32 +1,32 @@
 const colors = {
-    green: {
-        wrapperBackground: "#E6E1C3",
-        headerBackground: "#C1C72C",
-        headerColor: "black",
-        photoBorderColor: "#black"
-    },
-    blue: {
-        wrapperBackground: "#5F64D3",
-        headerBackground: "#26175A",
-        headerColor: "white",
-        photoBorderColor: "#73448C"
-    },
-    pink: {
-        wrapperBackground: "#879CDF",
-        headerBackground: "#FF8374",
-        headerColor: "white",
-        photoBorderColor: "#FEE24C"
-    },
-    red: {
-        wrapperBackground: "#DE9967",
-        headerBackground: "#870603",
-        headerColor: "white",
-        photoBorderColor: "white"
-    }
+  green: {
+    wrapperBackground: "#E6E1C3",
+    headerBackground: "#C1C72C",
+    headerColor: "black",
+    photoBorderColor: "#black"
+  },
+  blue: {
+    wrapperBackground: "#5F64D3",
+    headerBackground: "#26175A",
+    headerColor: "white",
+    photoBorderColor: "#73448C"
+  },
+  pink: {
+    wrapperBackground: "#879CDF",
+    headerBackground: "#FF8374",
+    headerColor: "white",
+    photoBorderColor: "#FEE24C"
+  },
+  red: {
+    wrapperBackground: "#DE9967",
+    headerBackground: "#870603",
+    headerColor: "white",
+    photoBorderColor: "white"
+  }
 };
-​
+
 function generateHTML(data) {
-    return `<!DOCTYPE html>
+  return `<!DOCTYPE html>
 <html lang="en">
    <head>
       <meta charset="UTF-8" />
@@ -34,7 +34,7 @@ function generateHTML(data) {
       <meta http-equiv="X-UA-Compatible" content="ie=edge" />
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"/>
       <link href="https://fonts.googleapis.com/css?family=BioRhyme|Cabin&display=swap" rel="stylesheet">
-      <title>Profile</title>
+      <title>Document</title>
       <style>
           @page {
             margin: 0;
@@ -137,6 +137,7 @@ function generateHTML(data) {
          padding-left: 100px;
          padding-right: 100px;
          }
+
          .row {
            display: flex;
            flex-wrap: wrap;
@@ -144,6 +145,7 @@ function generateHTML(data) {
            margin-top: 20px;
            margin-bottom: 20px;
          }
+
          .card {
            padding: 20px;
            border-radius: 6px;
@@ -156,25 +158,28 @@ function generateHTML(data) {
          flex: 1;
          text-align: center;
          }
+
          a, a:hover {
          text-decoration: none;
          color: inherit;
          font-weight: bold;
          }
+
          @media print { 
           body { 
             zoom: .75; 
           } 
          }
       </style>
-      <body>
+   </head>
+   <body>
       <div class="wrapper">
          <div class="photo-header">
             <img src="${data.avatar_url}" alt="Photo of ${data.name}" />
             <h1>Hi!</h1>
             <h2>
             My name is ${data.name}!</h1>
-            <h5>${data.company ? `Currently working @ ${data.company}` : ""}</h5>
+            <h5>${data.company ? `Currently @ ${data.company}` : ""}</h5>
             <nav class="links-nav">
                ${
                  data.location
@@ -222,7 +227,7 @@ function generateHTML(data) {
                <div class="col">
                <div class="card">
                   <h3>GitHub Stars</h3>
-                  <h4>${data.stars}</h4>
+                  <h4>{data.stars}</h4>
                   </div>
                </div>
                 <div class="col">
@@ -237,10 +242,6 @@ function generateHTML(data) {
       </div>
    </body>
 </html>`;
-              }
-​
-module.exports = generateHTML
-Collapse
+}
 
-
-
+module.exports = generateHTML;
