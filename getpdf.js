@@ -22,13 +22,26 @@ function promptUser() {
             git
                 .userName(gitusername)
                 .then(function (response) {
-                    generateHTML({ color, ...data })
-                    // console.log(response)
+                    console.log(response)
+                    return generateHTML({ color, ...data })
+                  
                 })
                 .then(html => {
+                
                     const conversion = convertFactory({
                       converterPath: convertFactory.converters.PDF
                     });
+                    // conversion({ html: '<h1>Hello World</h1>' }, function(err, result) {
+                    //     if (err) {
+                    //       return console.error(err);
+                    //     }
+                       
+                    //     console.log(result.numberOfPages);
+                    //     console.log(result.logs);
+                    //     result.stream.pipe(fs.createWriteStream('/path/to/anywhere.pdf'));
+                    //     conversion.kill(); // necessary if you use the electron-server strategy, see bellow for details
+                    //   });
+                    console.log(html)
             
                     conversion({ html }, function(err, result) {
                       if (err) {
