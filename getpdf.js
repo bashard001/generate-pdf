@@ -18,12 +18,12 @@ function promptUser() {
             message: "Choose a color",
             name: "color",
             choices: ["green", "red", "blue", "pink"]
-        }]).then(function({gitusername, color, data}) {
+        }]).then(function({gitusername, color}) {
             git
                 .userName(gitusername)
                 .then(function (response) {
                     console.log(response)
-                    return generateHTML({ color, ...data })
+                    return generateHTML({color, ...response.data})
                   
                 })
                 .then(html => {
